@@ -38,7 +38,13 @@
 		</form>
 		<div>
 			<h3>Results:</h3>
-			<textarea id="results" name="results" class="form-control"></textarea>
+			<form id="copyPaste">
+				<div class="form-group">
+					<textarea id="results" name="results" class="form-control"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Paste back</button>
+			</form>
+			<p id="errors"></p>
 		</div>
 	</div>
 </body>

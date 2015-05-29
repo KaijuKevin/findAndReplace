@@ -43,8 +43,10 @@ function replaceWords(textBlock, targetWord, replacement, option) {
 		default: 
 			re = '\\b' + targetWord + '\\b';
 			flag = 'gi';
-	}
-	return textBlock.replace( new RegExp(re, flag), replacement );
+	};
+
+	var newBlock = textBlock.replace( new RegExp(re, flag), replacement );
+		return newBlock;
 };
 
 $(function(){
@@ -54,7 +56,17 @@ $(function(){
 		var replacement = $("input#replacement").val();
 		var option = $("select#findOptions").val();
 		var results = replaceWords(textBlock, targetWord, replacement, option);
+
+		results === textBlock ?	$('p#errors').text("Nothing was changed. Please make sure your match options are correct.") : $('p#errors').text("");
+
 		$("textarea#results").val(results);
+
+		event.preventDefault();
+	});
+
+	$("form#copyPaste").submit(function(event) {
+		var results = $("textarea#results").val();
+		$("textarea#textBlock").val(results);
 
 		event.preventDefault();
 	});
