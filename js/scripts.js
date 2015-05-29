@@ -19,13 +19,42 @@ function myFindReplace(textBlock, targetWord, replacement) {
 	return editBlock;
 };
 
+function replaceWholeWords(textBlock, targetWord, replacement) {
+	var re = '\\b' + targetWord + '\\b';
+	return textBlock.replace( new RegExp(re, 'gi'), replacement );
+}
+
+function replaceWords(textBlock, targetWord, replacement, option) {
+	var re;
+	var flag;
+	switch( option ) {
+		case "first":
+			re = '\\b' + targetWord + '\\b';
+			flag = 'i';
+			break;
+		case "words":
+			re = '\\b' + targetWord + '\\b';
+			flag = 'gi'
+			break;
+		case "substring":
+			re = targetWord;
+			flag = 'gi'
+			break;
+		default: 
+			re = '\\b' + targetWord + '\\b';
+			flag = 'gi';
+	}
+	return textBlock.replace( new RegExp(re, flag), replacement );
+};
+
 $(function(){
 	$("form#findAndReplace").submit(function(event) {
 		var textBlock = $("textarea#textBlock").val();
 		var targetWord = $("input#targetWord").val();
 		var replacement = $("input#replacement").val();
-		var results = findReplaceMDN(textBlock, targetWord, replacement);
-		$("p#results").text(results);
+		var option = $("select#findOptions").val();
+		var results = replaceWords(textBlock, targetWord, replacement, option);
+		$("textarea#results").val(results);
 
 		event.preventDefault();
 	});
