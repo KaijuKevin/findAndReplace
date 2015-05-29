@@ -1,6 +1,6 @@
 describe("replaceWords", function() {
 	it("will only replace the first match", function() {
-		expect(replaceWords("the cat with the cat", "cat", "mouse", "first")).to.equal("the mouse with the cat")
+		expect(replaceWords("the cat with the cat", "cat", "mouse", "first")).to.equal("the mouse with the cat");
 	});
 
 	it("will replace the target word with a given string", function(){
