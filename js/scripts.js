@@ -1,3 +1,7 @@
 function findReplace(textBlock, targetWord, replacement) {
-	return textBlock.replace(targetWord, replacement)
+	var editBlock = textBlock;
+	while( editBlock.indexOf(targetWord) >= 0 ) {
+		editBlock = editBlock.replace(targetWord, replacement);
+	}
+	return editBlock;
 };
