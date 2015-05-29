@@ -1,15 +1,15 @@
 
 //http://stackoverflow.com/questions/4371565/can-you-create-javascript-regexes-on-the-fly-using-string-variables
 function findReplace(textBlock, targetWord, replacement) {
-	return textBlock.replace( new RegExp(targetWord, 'gi'), replacement )
+	return textBlock.replace( new RegExp(targetWord, 'gi'), replacement );
 };
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
 function findReplaceMDN(fullS, oldS, newS) {
   return fullS.split(oldS).join(newS);
-}
+};
 
-// Runs infinite loop
+// Runs infinite loop when replacement contains targetWord
 function myFindReplace(textBlock, targetWord, replacement) {
 	var editBlock = textBlock;
 	var indexes = [];
@@ -24,7 +24,7 @@ $(function(){
 		var textBlock = $("textarea#textBlock").val();
 		var targetWord = $("input#targetWord").val();
 		var replacement = $("input#replacement").val();
-		var results = findReplaceSO(textBlock, targetWord, replacement);
+		var results = findReplaceMDN(textBlock, targetWord, replacement);
 		$("p#results").text(results);
 
 		event.preventDefault();
