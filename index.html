@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="css/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/scripts.js"></script>
 	<title>Find and Replace</title>
 </head>
 <body>
 	<div class="container">
-		<h1>Find and replace</h1>
+		<header>
+			<h1>Find and replace</h1>
+		</header>
 		<form id="findAndReplace">
 			<div class="form-group">
 				<label for="textBlock">Please enter some text:</label>
-				<textarea id="textBlock" name="textBlock" class="form-control"></textarea>
+				<textarea id="textBlock" name="textBlock" class="form-control" required></textarea>
 			</div>
 			<div class="form-group form-inline">
 				<label for="targetWord">Find:</label>
-				<input id="targetWord" name="targetWord"  class="form-control" type="text">
+				<input id="targetWord" name="targetWord"  class="form-control" type="text" required>
 				<label for="replacement">Replace:</label>
-				<input id="replacement" name="replacement" class="form-control" type="text">
+				<input id="replacement" name="replacement" class="form-control" type="text" required>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Enter</button>
 			</div>
 		</form>
 		<div>
+			<h3>Results:</h3>
 			<p id="results"></p>
 		</div>
 	</div>
