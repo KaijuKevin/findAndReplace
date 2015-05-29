@@ -8,19 +8,18 @@ function replaceWords(textBlock, targetWord, replacement, option) {
 			break;
 		case "words":
 			re = '\\b' + targetWord + '\\b';
-			flag = 'gi'
+			flag = 'gi';
 			break;
 		case "substring":
 			re = targetWord;
-			flag = 'gi'
+			flag = 'gi';
 			break;
 		default: 
 			re = '\\b' + targetWord + '\\b';
 			flag = 'gi';
 	};
-
-	var newBlock = textBlock.replace( new RegExp(re, flag), replacement );
-		return newBlock;
+	
+	return textBlock.replace( new RegExp(re, flag), replacement );
 };
 
 $(function(){
