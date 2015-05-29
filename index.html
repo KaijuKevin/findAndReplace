@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
 	<title>Find and Replace</title>
 </head>
 <body>
-
+	<div class="container">
+		<h1>Find and replace</h1>
+		<form id="findAndReplace">
+			<div class="form-group">
+				<label for="textBlock">Please enter some text:</label>
+				<textarea id="textBlock" name="textBlock" class="form-control"></textarea>
+			</div>
+			<div class="form-group form-inline">
+				<label for="targetWord">Find:</label>
+				<input id="targetWord" name="targetWord"  class="form-control" type="text">
+				<label for="replace">Replace:</label>
+				<input id="replace" name="replace" class="form-control" type="text">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Enter</button>
+			</div>
+		</form>
+		<div>
+			<p id="results"></p>
+		</div>
+	</div>
 </body>
 </html>
